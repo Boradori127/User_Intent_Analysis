@@ -39,10 +39,10 @@
 |                 | Intent 수  | Slot 수  | 최종 데이터 수 | 
 | --------------- | ---------- | -------- | -------------- |
 | Amazon Massive  |     60     |   55     |    11,082      | 
-| AI Hub 한국어 대화 |     12     |   55     |     7,227      | 
-| 최종 Train      |     72     |   87    |    13,497      | 
-| 최종 Valid      |     67     |   84     |     2,111      | 
-| 최종 Test       |     68     |   84     |     2,701      | 
+| AI Hub 한국어 대화 |     12     |   36     |     7,520      | 
+| 최종 Train      |     72     |   87    |    14,881      | 
+| 최종 Valid      |     66     |   83     |     1,860      | 
+| 최종 Test       |     68     |   83     |     1,861      | 
 
 - 데이터를 shuffle한 뒤, train, valid, test dataset을 8:1:1 비율로 분할
 
@@ -91,12 +91,13 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 | Model                                  | Dataset               | Intent Accuracy(%) | Slot F1(%) | Sentence Accuracy(%) |
 |----------------------------------------|-----------------------|--------------------|------------|--------------------|
 | Multilingual BERT <br> (13 epoch)     | Amazon + 한국어 대화    | 84.7            | 76.9      | 60.0               |
+| Multilingual BERT + CRF <br> (13 epoch)     | Amazon + 한국어 대화    | 00.0            | 00.0      | 00.0               |
 
 
 
 ## Updates
 
-- 2024/11/04: 000 결과 추가
+- 2024/11/13: Add Results
 
 
 
