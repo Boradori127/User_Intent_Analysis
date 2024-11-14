@@ -1,8 +1,9 @@
-# [오케스트로] Intent classification & Slot filling
+# [오케스트로] Intent Classification & Slot Filling
 
-해당 프로젝트는 **Intent classification**과 **Slot filling**을 위해 JointBERT 모델을 활용합니다. Amazon-massive Dataset과 AI Hub 한국어 대화 Dataset을 결합하여, 한국어 환경에서의 효과적인 정보 추출을 목표로 합니다.
+해당 프로젝트는 **Intent Classification**과 **Slot Filling**을 위해 JointBERT 모델을 활용합니다. Amazon-massive Dataset과 AI Hub 한국어 대화 Dataset을 결합하여, 한국어 환경에서의 효과적인 정보 추출을 목표로 합니다.
 
 <br/>
+
 ## Model Architecture
 
 
@@ -18,6 +19,7 @@
 
 
 <br/>
+
 ## Dependencies (작업 환경)
 
 - python >= 3.6
@@ -28,6 +30,7 @@
 
 
 <br/>
+
 ## Dataset
 
 |                 | Intent 수  | Slot 수  | 최종 데이터 수 | 
@@ -65,6 +68,7 @@ $ python3 json_to_input.py \
 ```
 
 <br/>
+
 ## Training & Evaluation 
 
 모델 학습 및 평가를 위한 명령어 예시
@@ -84,6 +88,7 @@ $ python3 main.py --task amazon+korean \
 ```
 
 <br/>
+
 ## Prediction
 
 ```bash
@@ -91,6 +96,7 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 ```
 
 <br/>
+
 ## Results
 
 
@@ -101,12 +107,14 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 
 
 <br/>
+
 ## Updates
 
 - 2024/11/13: Add Results
 
 
 <br/>
+
 ## References
 - [JointBERT](https://github.com/monologg/JointBERT)
 - [Huggingface Transformers](https://github.com/huggingface/transformers)
