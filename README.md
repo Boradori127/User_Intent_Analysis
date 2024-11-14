@@ -4,17 +4,6 @@
 
 ## Model Architecture
 
-**JointBERT 모델에 맞춰 한국어 데이터셋을 전처리**하기 위해 관련 코드를 추가했습니다.
-
-- `korean_to_json.py` : 엑셀 형태의 AI Hub 한국어 대화 Dataset을 JSON 파일을 변환하고, 도메인별로 train, valid, test dataset을 구축  
-  * AI Hub 한국어 대화 Dataset을 JSON으로 변환
-
-- `amazon+korean_to_json.py` : `korean_to_json.py` 파일을 불러온 뒤, AI Hub 한국어 대화 Dataset과 Amazon-massive Dataset을 train, valid, test별로 통합하여 JSON 파일로 저장
-  * AI Hub 한국어 대화 Dataset과 Amazon-massive Dataset을 JSON으로 변환
-
-- `json_to_input.py` : `amazon+korean_to_json.py`의 결과를 JointBERT 모델의 입력 형식에 맞게 `seq.in`, `seq.out`, `label` 파일로 각각 변환 후, `./data/amazon+korean` 경로에 저장
-
-
 
 <p float="left" align="center">
     <img src="./Korean_BERT_IMG.png" alt="한국어 BERT 그림" />
@@ -45,6 +34,20 @@
 | 최종 Test       |     68     |   83     |     1,861      | 
 
 - 데이터를 shuffle한 뒤, train, valid, test dataset을 8:1:1 비율로 분할
+
+<br/>
+
+**JointBERT 모델에 맞춰 한국어 데이터셋을 전처리하기 위해 관련 코드 추가**
+
+- `korean_to_json.py` : 엑셀 형태의 AI Hub 한국어 대화 Dataset을 JSON 파일로 변환하고, 도메인별로 train, valid, test dataset을 구축  
+  * AI Hub 한국어 대화 Dataset을 JSON으로 변환
+
+- `amazon+korean_to_json.py` : `korean_to_json.py` 파일을 불러온 뒤, 엑셀 형태의 AI Hub 한국어 대화 Dataset과 Amazon-massive Dataset을 train, valid, test별로 통합하여 JSON 파일로 저장
+  * AI Hub 한국어 대화 Dataset과 Amazon-massive Dataset을 JSON으로 변환
+
+- `json_to_input.py` : `amazon+korean_to_json.py`의 결과를 JointBERT 모델의 입력 형식에 맞게 `seq.in`, `seq.out`, `label` 파일로 각각 변환 후, `./data/amazon+korean` 경로에 저장
+
+<br/>
 
 - **원본 데이터 저장 경로:** ./data/raw_data
 - **전처리된 데이터 저장 경로:** ./data/amazon+korean 
@@ -91,7 +94,7 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 | Model                                  | Dataset               | Intent Accuracy(%) | Slot F1(%) | Sentence Accuracy(%) |
 |----------------------------------------|-----------------------|--------------------|------------|--------------------|
 | Multilingual BERT <br> (13 epoch)     | Amazon + 한국어 대화    | 84.7            | 76.9      | 60.0               |
-| Multilingual BERT + CRF <br> (13 epoch)     | Amazon + 한국어 대화    | 00.0            | 00.0      | 00.0               |
+| Multilingual BERT + CRF <br> (16 epoch)     | Amazon + 한국어 대화    | 82.5            | 82.4      | 62.8               |
 
 
 

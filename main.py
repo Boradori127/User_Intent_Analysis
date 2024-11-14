@@ -36,7 +36,7 @@ if __name__ == '__main__':
     parser.add_argument("--eval_batch_size", default=16, type=int, help="Batch size for evaluation.") # 64 -> 16
     parser.add_argument("--max_seq_len", default=50, type=int, help="The maximum total input sequence length after tokenization.")
     parser.add_argument("--learning_rate", default=2e-5, type=float, help="The initial learning rate for Adam.") # 5e-5 -> 2e-5
-    parser.add_argument("--num_train_epochs", default=15.0, type=float, help="Total number of training epochs to perform.")  # 에폭 수정
+    parser.add_argument("--num_train_epochs", default=18.0, type=float, help="Total number of training epochs to perform.")  # 에폭 수정
     parser.add_argument("--weight_decay", default=0.0, type=float, help="Weight decay if we apply some.")
     parser.add_argument('--gradient_accumulation_steps', type=int, default=1,
                         help="Number of updates steps to accumulate before performing a backward/update pass.")

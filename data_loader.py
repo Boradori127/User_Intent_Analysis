@@ -89,25 +89,17 @@ class JointProcessor(object):
         """Creates examples for the training and dev sets."""
         examples = []
         for i, (text, intent, slot) in enumerate(zip(texts, intents, slots)):
-            # print("Make Examples")
-            # print("Text : ", text)
-            # print("Intent : ", intent)
-            # print("Slot : ", slot)
             guid = "%s-%s" % (set_type, i)
             # 1. input_text
             words = text.split()  # Some are spaced twice
-            # print("text split : ", words)
             # 2. intent
             intent_label = self.intent_labels.index(intent) if intent in self.intent_labels else self.intent_labels.index("UNK")
-            # print("Intent Label : ", intent_label)
             # 3. slot
             # In the `JointProcessor` class, the line `slot_labels = []` initializes an empty list
             # named `slot_labels`. This list is used to store the slot labels for each word in the
             # input text during the creation of examples for the training and development sets.
             slot_labels = []
-            # print("slot : ", slot)
             for s in slot.split():
-                # print(s)
                 slot_labels.append(self.slot_labels.index(s) if s in self.slot_labels else self.slot_labels.index("UNK"))
                 print(slot_labels)
                 
@@ -157,17 +149,12 @@ def convert_examples_to_features(examples, max_seq_len, tokenizer,
         tokens = []
         slot_labels_ids = []
         for word, slot_label in zip(example.words, example.slot_labels):
-            # print("example world : ", example.words)
-            # print("example slot : ", example.slot_labels)
             word_tokens = tokenizer.tokenize(word)
-            # print(word, " tokenize : ", word_tokens)
             if not word_tokens:
                 word_tokens = [unk_token]  # For handling the bad-encoded word
             tokens.extend(word_tokens)
             # Use the real label id for the first token of the word, and padding ids for the remaining tokens
             slot_labels_ids.extend([int(slot_label)] + [pad_token_label_id] * (len(word_tokens) - 1))
-        # print("Token : ", tokens)
-        # print("Slot : ", slot_labels_ids)
         
         # Account for [CLS] and [SEP]
         special_tokens_count = 2

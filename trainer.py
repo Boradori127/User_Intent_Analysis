@@ -32,9 +32,9 @@ class Trainer(object):
                                                       intent_label_lst=self.intent_label_lst,
                                                       slot_label_lst=self.slot_label_lst)
 
-        # GPU or CPU -> 변경
+        # Cuda_Num 설정
         if torch.cuda.is_available() and not args.no_cuda:
-            self.device = torch.device("cuda:2")
+            self.device = torch.device("cuda:0")
         else:
             self.device = torch.device("cpu")
         print(self.device)
@@ -90,8 +90,6 @@ class Trainer(object):
                     inputs['token_type_ids'] = batch[2]
                 outputs = self.model(**inputs)
                 loss = outputs[0]
-                #########################################
-                # print(loss)
 
                 if self.args.gradient_accumulation_steps > 1:
                     loss = loss / self.args.gradient_accumulation_steps
@@ -216,7 +214,7 @@ class Trainer(object):
         for key in sorted(results.keys()):
             logger.info("  %s = %s", key, str(results[key]))
             
-        # 추가된 부분: 상위 5개 예측 결과 출력
+        # 상위 5개 예측 결과 출력
         logger.info("***** Top 5 Predictions *****")
         for i in range(5):
             logger.info("Example %d:" % (i + 1))
