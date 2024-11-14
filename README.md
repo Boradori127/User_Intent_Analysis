@@ -55,7 +55,8 @@ Amazon-massive Dataset과 AI Hub 한국어 대화 Dataset을 결합하여, 한�
 - `amazon+korean_to_json.py` : `korean_to_json.py` 파일을 불러온 뒤, 엑셀 형태의 AI Hub 한국어 대화 Dataset과 Amazon-massive Dataset을 train, valid, test별로 통합하여 JSON 파일로 저장
   * AI Hub 한국어 대화 Dataset과 Amazon-massive Dataset을 JSON으로 변환
 
-- `json_to_input.py` : `amazon+korean_to_json.py`의 결과를 JointBERT 모델의 입력 형식에 맞게 `seq.in`, `seq.out`, `label` 파일로 각각 변환 후, `./data/amazon+korean` 경로에 저장
+- `json_to_input.py` : `amazon+korean_to_json.py`의 결과를 JointBERT 모델의 input 형식에 맞게 `seq.in`, `seq.out`, `label` 파일로 각각 변환 후, `./data/amazon+korean` 경로에 저장
+  * Json을 모델의 input 형식에 맞게 변환
 
 <br/>
 
