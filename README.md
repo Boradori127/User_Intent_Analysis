@@ -59,15 +59,14 @@ Amazon-massive Dataset과 AI Hub 한국어 대화 Dataset을 결합하여, 한�
 
 <br/>
 
-- **원본(엑셀) 데이터 저장 경로:** ./data/raw_data
-- **전처리된 데이터 저장 경로:** ./data/amazon+korean 
-
-
 ```bash
 # 데이터 전처리
 $ python3 amazon+korean_to_json.py \
 $ python3 json_to_input.py \
 ```
+
+- **원본(엑셀) 데이터 저장 경로:** ./data/raw_data
+- **전처리된 데이터 저장 경로:** ./data/amazon+korean 
 
 <br/>
 
