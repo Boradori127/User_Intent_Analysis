@@ -2,7 +2,7 @@
 
 해당 프로젝트는 **Intent classification**과 **Slot filling**을 위해 JointBERT 모델을 활용합니다. Amazon-massive Dataset과 AI Hub 한국어 대화 Dataset을 결합하여, 한국어 환경에서의 효과적인 정보 추출을 목표로 합니다.
 
-<br/><br/>
+<br/>
 ## Model Architecture
 
 
@@ -17,7 +17,7 @@
 - **CRF 레이어**: CRF 레이어를 사용하려면 `--use_crf` 옵션 추가
 
 
-<br/><br/>
+<br/>
 ## Dependencies (작업 환경)
 
 - python >= 3.6
@@ -27,7 +27,7 @@
 - pytorch-crf == 0.7.2
 
 
-<br/><br/>
+<br/>
 ## Dataset
 
 |                 | Intent 수  | Slot 수  | 최종 데이터 수 | 
@@ -64,7 +64,7 @@ $ python3 amazon+korean_to_json.py \
 $ python3 json_to_input.py \
 ```
 
-<br/><br/>
+<br/>
 ## Training & Evaluation 
 
 모델 학습 및 평가를 위한 명령어 예시
@@ -83,14 +83,14 @@ $ python3 main.py --task amazon+korean \
                   --do_train --do_eval \
 ```
 
-<br/><br/>
+<br/>
 ## Prediction
 
 ```bash
 $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_PATH} --model_dir {SAVED_CKPT_PATH}
 ```
 
-<br/><br/>
+<br/>
 ## Results
 
 
@@ -100,13 +100,13 @@ $ python3 predict.py --input_file {INPUT_FILE_PATH} --output_file {OUTPUT_FILE_P
 | Multilingual BERT + CRF <br> (16 epoch)     | Amazon + 한국어 대화    | 82.5            | 82.4      | 62.8               |
 
 
-<br/><br/>
+<br/>
 ## Updates
 
 - 2024/11/13: Add Results
 
 
-<br/><br/>
+<br/>
 ## References
 - [JointBERT](https://github.com/monologg/JointBERT)
 - [Huggingface Transformers](https://github.com/huggingface/transformers)
