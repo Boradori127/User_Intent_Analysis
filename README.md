@@ -10,10 +10,8 @@ Amazon-massive Dataset과 AI Hub 한국어 대화 Dataset을 결합하여, 한�
 
 
 <p float="left" align="center">
-    <img src="./Korean_BERT_IMG.png" alt="한국어 BERT 그림" />
+    <img src="./Korean_BERT_image.png" alt="한국어 BERT 그림" />
 </p>
-
-
 
 - 하나의 BERT 모델에서 **intent**와 **slot**을 동시에 예측
 - **total_loss**: `total_loss = intent_loss + coef * slot_loss` (옵션 `--slot_loss_coef`으로 coef 조정 가능)
